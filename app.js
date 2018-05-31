@@ -12,7 +12,7 @@ app.get('/about', middlewares.application.requireAuthentication, (req, res, next
   res.send('About Us');
 })
 
-var port = process.env.PORT || 8000;
-app.listen(port, () => {
-  console.log(`Listening on port : ${port}`)
+app.set('port', process.env.PORT || 3000);
+app.listen(app.get('port'), () => {
+  console.log(`Listening on port : ${app.get('port')}`)
 })
